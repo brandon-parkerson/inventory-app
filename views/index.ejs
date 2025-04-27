@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Games List</title>
 </head>
 <body>
-    <h1>Root</h1>
-    <h1>Categories:</h1>
-    <div class="links">
-        <a href="/action">Action</a>
-        <a href="/rpg">RPG</a>
-        <a href="/strategy">Strategy</a>
-    </div>
-    <div class="list-of-games">
-        <ul>
-            <% games.forEach((game) => { %>
-                <li><%= game.name %></li>
-            <% }); %>
-        </ul>
-    </div>
+  <h1>Root</h1>
+
+  <h1>Categories:</h1>
+  <div class="links">
+    <a href="/action">Action</a>
+    <a href="/rpg">RPG</a>
+    <a href="/strategy">Strategy</a>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Game</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Developer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% games.forEach((game) => { %>
+        <tr>
+          <th scope="row"><%= game.name %></th>
+
+          <% if (game.genre_id == 1) { %>
+            <td>Action</td>
+          <% } else if (game.genre_id == 2) { %>
+            <td>RPG</td>
+          <% } else { %>
+            <td>Strategy</td>
+          <% } %>
+
+          <td>(developer name coming soon)</td> 
+        </tr>
+      <% }); %> 
+    </tbody>
+  </table>
 </body>
 </html>
