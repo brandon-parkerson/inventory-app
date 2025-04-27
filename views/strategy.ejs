@@ -8,5 +8,12 @@
 <body>
     <h1>Stragy Games</h1>
     <a href="/">Home</a>
+    <div class="action-game-list">
+        <ul>
+            <% games.forEach((game) => { %>
+                <li><%= game.name %></li>
+            <% }) %>
+        </ul>
+    </div>
 </body>
 </html>

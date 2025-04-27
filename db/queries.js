@@ -18,7 +18,25 @@ async function addGame(name, genre, developer) {
     
 }
 
+async function getActionGames() {
+    const { rows } = await pool.query("SELECT * FROM games WHERE genre_id = 1");
+    return rows;
+}
+
+async function getRpgGames() {
+    const { rows } = await pool.query("SELECT * FROM games WHERE genre_id = 2");
+    return rows;
+}
+
+async function getStrategyGames() {
+    const {rows} = await pool.query("SELECT * FROM games WHERE genre_id = 3");
+    return rows;
+}
+
 module.exports = {
     getAllGames,
-    addGame
+    addGame,
+    getActionGames,
+    getRpgGames,
+    getStrategyGames,
   };

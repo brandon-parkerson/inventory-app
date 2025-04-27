@@ -6,15 +6,18 @@ async function getIndex(req, res) {
 }
 
 async function getStrategy(req, res) {
-    res.render("strategy")
+    const games = await db.getStrategyGames();
+    res.render("strategy", {games});
 }
 
 async function getAction(req, res) {
-    res.render("action")
+    const games = await db.getActionGames();
+    res.render("action", {games});
 }
 
 async function getRpg(req, res) {
-    res.render("rpg")
+    const games = await db.getRpgGames();
+    res.render("rpg", {games});
 }
 
 module.exports = {

@@ -36,9 +36,16 @@
             <td>Strategy</td>
           <% } %>
 
-          <td>(developer name coming soon)</td> 
+          <% if (game.developer_id == 1) { %>
+            <td>Bungie</td>
+          <% } else if (game.developer_id == 2) { %>
+            <td>Riot Games</td>
+          <% } else { %>
+            <td>BioWare</td>
+          <% } %>
+
         </tr>
-      <% }); %> 
+      <% }); %>
     </tbody>
   </table>
 </body>
