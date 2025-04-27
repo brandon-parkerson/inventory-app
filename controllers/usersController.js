@@ -20,9 +20,23 @@ async function getRpg(req, res) {
     res.render("rpg", {games});
 }
 
+async function getNew(req, res) {
+    res.render("new");
+}
+
+async function storeGame(req, res) {
+    const {name, genre, developer} = req.body;
+    console.log(name, genre, developer);
+    
+    await db.addGame(name, genre, developer);
+    res.redirect("/");
+}
+
 module.exports = {
     getIndex,
     getStrategy,
     getAction,
     getRpg,
+    storeGame,
+    getNew,
 }

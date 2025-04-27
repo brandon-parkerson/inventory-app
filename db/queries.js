@@ -1,7 +1,12 @@
 const pool = require("./pool");
 
 async function getAllGames() {
-    const { rows } = await pool.query("SELECT * FROM games");
+    const { rows } = await pool.query(`
+        SELECT g.name, g.genre_id, g.developer_id, ge.genre_name, d.developer_name
+        FROM games g
+        JOIN genre ge ON g.genre_id = ge.id
+        JOIN developer d ON g.developer_id = d.id
+    `);
     return rows;
 }
 
@@ -33,10 +38,13 @@ async function getStrategyGames() {
     return rows;
 }
 
+
+
 module.exports = {
     getAllGames,
     addGame,
     getActionGames,
     getRpgGames,
     getStrategyGames,
+    
   };

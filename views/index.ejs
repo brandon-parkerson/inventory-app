@@ -14,6 +14,7 @@
     <a href="/rpg">RPG</a>
     <a href="/strategy">Strategy</a>
   </div>
+  <a href="/new">Add Game</a>
 
   <table>
     <thead>
@@ -27,23 +28,8 @@
       <% games.forEach((game) => { %>
         <tr>
           <th scope="row"><%= game.name %></th>
-
-          <% if (game.genre_id == 1) { %>
-            <td>Action</td>
-          <% } else if (game.genre_id == 2) { %>
-            <td>RPG</td>
-          <% } else { %>
-            <td>Strategy</td>
-          <% } %>
-
-          <% if (game.developer_id == 1) { %>
-            <td>Bungie</td>
-          <% } else if (game.developer_id == 2) { %>
-            <td>Riot Games</td>
-          <% } else { %>
-            <td>BioWare</td>
-          <% } %>
-
+          <td><%= game.genre_name %></td>
+          <td><%= game.developer_name %></td>
         </tr>
       <% }); %>
     </tbody>
