@@ -32,6 +32,11 @@ async function storeGame(req, res) {
     res.redirect("/");
 }
 
+async function deleteGame(req, res) {
+    db.removeGame(req.params.id);
+    res.redirect("/");
+}
+
 module.exports = {
     getIndex,
     getStrategy,
@@ -39,4 +44,5 @@ module.exports = {
     getRpg,
     storeGame,
     getNew,
+    deleteGame,
 }

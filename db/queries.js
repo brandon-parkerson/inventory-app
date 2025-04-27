@@ -2,13 +2,14 @@ const pool = require("./pool");
 
 async function getAllGames() {
     const { rows } = await pool.query(`
-        SELECT g.name, g.genre_id, g.developer_id, ge.genre_name, d.developer_name
+        SELECT g.id, g.name, g.genre_id, g.developer_id, ge.genre_name, d.developer_name
         FROM games g
         JOIN genre ge ON g.genre_id = ge.id
         JOIN developer d ON g.developer_id = d.id
     `);
     return rows;
 }
+
 
 async function addGame(name, genre, developer) {
     const genreResult = await pool.query("INSERT INTO genre (genre_name) VALUES ($1) RETURNING id", [genre]);
@@ -38,6 +39,10 @@ async function getStrategyGames() {
     return rows;
 }
 
+async function removeGame(gameId) {
+    await pool.query(`DELETE FROM games WHERE id = $1`, [gameId]);
+}
+
 
 
 module.exports = {
@@ -46,5 +51,5 @@ module.exports = {
     getActionGames,
     getRpgGames,
     getStrategyGames,
-    
+    removeGame,
   };

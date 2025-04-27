@@ -30,6 +30,12 @@
           <th scope="row"><%= game.name %></th>
           <td><%= game.genre_name %></td>
           <td><%= game.developer_name %></td>
+          <td><%= game.id %></td>
+          <td>
+            <form action="/<%= game.id %>/delete" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
         </tr>
       <% }); %>
     </tbody>

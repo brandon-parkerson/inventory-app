@@ -9,5 +9,7 @@ usersRouter.get("/action", usersController.getAction);
 usersRouter.get("/new", usersController.getNew);
 
 usersRouter.post("/new", usersController.storeGame);
+usersRouter.post("/:id/delete", usersController.deleteGame);
+
 
 module.exports = usersRouter;
