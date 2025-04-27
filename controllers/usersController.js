@@ -1,15 +1,25 @@
-exports.getIndex = (req, res) => {
-    res.render("index")
+const db = require("../db/queries");
+
+async function getIndex(req, res) {
+    const games = await db.getAllGames();
+    res.render("index", {games});
 }
 
-exports.getStrategy = (req, res) => {
+async function getStrategy(req, res) {
     res.render("strategy")
 }
 
-exports.getAction = (req, res) => {
+async function getAction(req, res) {
     res.render("action")
 }
 
-exports.getRpg = (req, res) => {
+async function getRpg(req, res) {
     res.render("rpg")
+}
+
+module.exports = {
+    getIndex,
+    getStrategy,
+    getAction,
+    getRpg,
 }

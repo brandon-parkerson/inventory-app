@@ -13,5 +13,12 @@
         <a href="/rpg">RPG</a>
         <a href="/strategy">Strategy</a>
     </div>
+    <div class="list-of-games">
+        <ul>
+            <% games.forEach((game) => { %>
+                <li><%= game.name %></li>
+            <% }); %>
+        </ul>
+    </div>
 </body>
 </html>
