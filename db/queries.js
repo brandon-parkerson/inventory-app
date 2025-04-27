@@ -40,7 +40,7 @@ async function getActionGames() {
         FROM games g
         JOIN genre ge ON g.genre_id = ge.id
         JOIN developer d ON g.developer_id = d.id
-        WHERE g.genre_id = 1
+        WHERE g.genre_id = 2
     `);
     return rows;
 }
@@ -52,7 +52,7 @@ async function getRpgGames() {
         FROM games g
         JOIN genre ge ON g.genre_id = ge.id
         JOIN developer d ON g.developer_id = d.id
-        WHERE g.genre_id = 2
+        WHERE g.genre_id = 1
         `);
     return rows;
 }
