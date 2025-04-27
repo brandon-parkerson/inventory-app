@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Action Games</title>
 </head>
 <body>
-    <h1>Action Games</h1>
-    <a href="/">Home</a>
-    <div class="action-game-list">
-        <ul>
-            <% games.forEach((game) => { %>
-                <li><%= game.name %></li>
-            <% }) %>
-        </ul>
-    </div>
+  <h1>Action Games</h1>
+
+  <h2>Categories:</h2>
+  <div class="links">
+    <a href="/action">Action</a>
+    <a href="/rpg">RPG</a>
+    <a href="/strategy">Strategy</a>
+  </div>
+  <a href="/new">Add Game</a>
+
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Game</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Developer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% games.forEach((game) => { %>
+        <tr>
+          <th scope="row"><%= game.name %></th>
+          <td><%= game.genre_name %></td>
+          <td><%= game.developer_name %></td>
+          <td>
+            <form action="/<%= game.id %>/delete" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
 </body>
 </html>
